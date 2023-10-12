@@ -44,4 +44,24 @@ public class BookCaseAction {
         return result;
     }
 
+    public static List<CommercialBook> findBookByMangakaRating(String rating, List<CommercialBook> listAllBook) {
+        List<CommercialBook> result = new ArrayList<>();
+        List<Author> listAllAuthor = new ArrayList<>();
+
+        for (CommercialBook commercialBook : listAllBook) {
+            if (commercialBook.getAuthor() instanceof Mangaka) {
+                listAllAuthor.add(commercialBook.getAuthor());
+                for (Author author : listAllAuthor) {
+                    if (author instanceof Mangaka) {
+                        if (((Mangaka) author).getRating().equalsIgnoreCase(rating)) {
+                            result.add(commercialBook);
+                        }
+                    }
+                }
+
+            }
+        }
+        return result;
+    }
+
 }

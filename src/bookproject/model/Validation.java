@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Validation {
 
     public static String regexNumber = "^[0-9]+$";
-    public static String regexWord = "^[a-zA-Z]+$";
+    public static String regexWord = "^[a-zA-Z ]+$";
     public static Scanner in = new Scanner(System.in);
 
     public static String validateInput(String question, String errorMessage, String regex) {

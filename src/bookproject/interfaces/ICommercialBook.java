@@ -24,6 +24,4 @@ public interface ICommercialBook extends IPrice {
         put("BEST SELLER", 1.4);
     }};
     
-    String [][] RATES_RATING_MANGAKA_WITH_SERIES_ARR = {{"NEW COMMER", "GOOD", "BEST SELLER"},{"1.35", "1.45", "1.5"}};
-    
 }
