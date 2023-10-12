@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import bookproject.abstracts.Book;
-import bookproject.abstracts.ComercialBook;
+import bookproject.abstracts.CommercialBook;
 import bookproject.model.Author;
 import bookproject.model.Comic;
 import bookproject.model.EBook;
@@ -15,7 +15,7 @@ import bookproject.model.Publisher;
 
 public class BookRepository {
 	
-	public List<ComercialBook> getAllBook(){
+	public List<CommercialBook> getAllBook(){
 
 		//Author
 		Author author1 = new Author("Haidar", "Musyafa", "Indonesia", 30);
@@ -84,7 +84,7 @@ public class BookRepository {
 		Comic comic7 = new Comic("Comic - 007", "Petuangan di Indonesia", mangaka4, publisher6, 0, 0, false);
 		Comic comic8 = new Comic("Comic - 008", "Petuangan di Jakarta", mangaka5, publisher5, 0, 0, false);
 		
-		List<ComercialBook> listAllBook = Arrays.asList(book1, book2, book3, book4, book5, book6, book7, book8, novel1, novel2, novel3, novel4, novel5, novel6, novel7, novel8, comic1, comic2, comic3, comic4, comic5, comic6, comic7, comic8);
+		List<CommercialBook> listAllBook = Arrays.asList(book1, book2, book3, book4, book5, book6, book7, book8, novel1, novel2, novel3, novel4, novel5, novel6, novel7, novel8, comic1, comic2, comic3, comic4, comic5, comic6, comic7, comic8);
 		
 //		ComercialBook[] allCommercialBook = {book1, book2, book3, book4, book5, book6, book7, book8, novel1, novel2, novel3, novel4, novel5, novel6, novel7, novel8, comic1, comic2, comic3, comic4, comic5, comic6, comic7, comic8};
 //		

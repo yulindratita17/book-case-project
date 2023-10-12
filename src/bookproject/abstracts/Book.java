@@ -5,7 +5,7 @@ import bookproject.model.Publisher;
 
 public abstract class Book {
 	private String bookCode;
-	private String tilte;
+	private String tittle;
 	private Author author;
 	private Publisher publisher;
 	
@@ -13,10 +13,10 @@ public abstract class Book {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Book(String bookCode, String tilte, Author author, Publisher publisher) {
+	public Book(String bookCode, String tittle, Author author, Publisher publisher) {
 		super();
 		this.bookCode = bookCode;
-		this.tilte = tilte;
+		this.tittle = tittle;
 		this.author = author;
 		this.publisher = publisher;
 	}
@@ -29,12 +29,12 @@ public abstract class Book {
 		this.bookCode = bookCode;
 	}
 
-	public String getTilte() {
-		return tilte;
+	public String getTittle() {
+		return tittle;
 	}
 
-	public void setTilte(String tilte) {
-		this.tilte = tilte;
+	public void setTittle(String tittle) {
+		this.tittle = tittle;
 	}
 
 	public Author getAuthor() {

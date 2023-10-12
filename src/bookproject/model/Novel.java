@@ -3,9 +3,9 @@ package bookproject.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import bookproject.abstracts.ComercialBook;
+import bookproject.abstracts.CommercialBook;
 
-public class Novel extends ComercialBook {
+public class Novel extends CommercialBook {
 	private String genre;
 	
 	public Novel() {

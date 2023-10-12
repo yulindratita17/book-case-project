@@ -4,15 +4,15 @@ import bookproject.interfaces.ICommercialBook;
 import bookproject.model.Author;
 import bookproject.model.Publisher;
 
-public abstract class ComercialBook extends Book implements ICommercialBook {
+public abstract class CommercialBook extends Book implements ICommercialBook {
 	private double price;
 	
-	public ComercialBook() {
+	public CommercialBook() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ComercialBook(String bookCode, String tilte, Author author, Publisher publisher, double price) {
-		super(bookCode, tilte, author, publisher);
+	public CommercialBook(String bookCode, String tittle, Author author, Publisher publisher, double price) {
+		super(bookCode, tittle, author, publisher);
 		this.price = price;
 	}
 
@@ -27,7 +27,7 @@ public abstract class ComercialBook extends Book implements ICommercialBook {
 	@Override
 	public String toString() {
 		return "ComercialBook [price=" + price + ", getPrice()=" + getPrice() + ", getBookCode()=" + getBookCode()
-				+ ", getTilte()=" + getTilte() + ", getAuthor()=" + getAuthor() + ", getPublisher()=" + getPublisher()
+				+ ", getTilte()=" + getTittle() + ", getAuthor()=" + getAuthor() + ", getPublisher()=" + getPublisher()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
 	}

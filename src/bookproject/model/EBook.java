@@ -1,8 +1,8 @@
 package bookproject.model;
 
-import bookproject.abstracts.ComercialBook;
+import bookproject.abstracts.CommercialBook;
 
-public class EBook extends ComercialBook {
+public class EBook extends CommercialBook {
 	
 	public EBook() {
 		// TODO Auto-generated constructor stub

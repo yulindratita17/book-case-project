@@ -4,7 +4,7 @@ import bookproject.interfaces.ITax;
 import bookproject.model.Author;
 import bookproject.model.Publisher;
 
-public abstract class TaxCommercialBook extends ComercialBook implements ITax {
+public abstract class TaxCommercialBook extends CommercialBook implements ITax {
 	private double tax;
 	
 	public TaxCommercialBook() {
