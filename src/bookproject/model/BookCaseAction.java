@@ -64,4 +64,24 @@ public class BookCaseAction {
         return result;
     }
 
+    public static List<CommercialBook> findBookByCountry(String type, String country,
+            List<CommercialBook> listAllBook) {
+        List<CommercialBook> result = new ArrayList<>();
+
+        for (CommercialBook commercialBook : listAllBook) {
+            if (type.equalsIgnoreCase("publisher")) {
+                if (commercialBook.getPublisher().getCountry().equalsIgnoreCase(country)) {
+                    result.add(commercialBook);
+                }
+            } else if (type.equalsIgnoreCase("author")) {
+                if (commercialBook.getAuthor().getCountry().equalsIgnoreCase(country)) {
+                    result.add(commercialBook);
+                }
+
+            }
+
+        }
+        return result;
+    }
+
 }

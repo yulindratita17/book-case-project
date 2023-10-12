@@ -79,14 +79,24 @@ public class BookCaseMenu {
                     // isLooping = false;
                     break;
                 case 4:
-                String rating = Validation.validateInput("Enter rating: ", "Only alphabet accepted", Validation.regexWord);
-                PrintData.printDataBook("Book By Rating Mangaka " + rating, BookCaseAction.findBookByMangakaRating(rating, listAllBook));
+                    String rating = Validation.validateInput("Enter rating: ", "Only alphabet accepted",
+                            Validation.regexWord);
+                    PrintData.printDataBook("Book By Rating Mangaka " + rating,
+                            BookCaseAction.findBookByMangakaRating(rating, listAllBook));
 
                     break;
                 case 5:
+                    String countryPublisher = Validation.validateInput("Enter publisher country: ",
+                            "Only alphabet accepted", Validation.regexWord);
+                    PrintData.printDataBook("Book By Publisher Country " + countryPublisher,
+                            BookCaseAction.findBookByCountry("publisher", countryPublisher, listAllBook));
 
                     break;
                 case 6:
+                    String countryAuthor = Validation.validateInput("Enter author country: ", "Only alphabet accepted",
+                            Validation.regexWord);
+                    PrintData.printDataBook("Book By Publisher Country " + countryAuthor,
+                            BookCaseAction.findBookByCountry("author", countryAuthor, listAllBook));
 
                     break;
                 case 7:
