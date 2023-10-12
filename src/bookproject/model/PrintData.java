@@ -29,18 +29,18 @@ public class PrintData {
 
 	public static void printDataBook(String tittle, List<CommercialBook> listData) {
 		int num = 1;
-		String formatTabel = "| %-4s | %-12s | %-15s | %-13s | %-22s | %-5s | %n";
-		System.out.println("\n==========================================================================================");
-		System.out.printf("| %-86s |%n", tittle);
-		System.out.println("==========================================================================================");
+		String formatTabel = "| %-4s | %-12s | %-55s | %-25s | %-22s | %-5s | %n";
+		System.out.println("\n==============================================================================================================================================");
+		System.out.printf("| %-138s |%n", tittle);
+		System.out.println("==============================================================================================================================================");
 		System.out.printf(formatTabel, "No", "Book Code", "Tittle", "Author", "Publisher", "Price");
-		System.out.println("==========================================================================================");
+		System.out.println("==============================================================================================================================================");
 
 		for (CommercialBook data : listData) {
 			System.out.printf(formatTabel, num, data.getBookCode(), data.getTittle(), data.getAuthor().getFullName(),
 					data.getPublisher().getPublisherName(), String.format("%.2f",data.getPrice()));
 			num++;
 		}
-		System.out.println("==========================================================================================\n");
+		System.out.println("==============================================================================================================================================\n");
 	}
 }

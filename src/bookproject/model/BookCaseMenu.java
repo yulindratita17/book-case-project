@@ -6,18 +6,19 @@ import bookproject.abstracts.CommercialBook;
 import bookproject.repositories.BookRepository;
 
 public class BookCaseMenu {
-    public static BookRepository bookRepo = new BookRepository();
-    // ambil semua data book dari repository
-    public static List<CommercialBook> listAllBook = bookRepo.getAllBook();
+    
 
     public static void runApp() {
 
+        BookRepository bookRepo = new BookRepository();
+        List<CommercialBook> listAllBook = bookRepo.getAllBook();
+
         String[] mainPublisher = { "Production Cost Termahal", "Production Cost Termurah", "Back To Main Menu" };
-        mainMenu();
+        mainMenu(listAllBook);
 
     }
 
-    public static void mainMenu() {
+    public static void mainMenu(List<CommercialBook> listAllBook) {
         String[] mainMenu = { "Book", "Author", "Publisher", "Exit" };
         int optionMainMenu;
         boolean isLooping = true;
@@ -32,7 +33,7 @@ public class BookCaseMenu {
             switch (optionMainMenu) {
                 case 1:
                     // panggil menu book
-                    bookMenu();
+                    bookMenu(listAllBook);
                     break;
                 case 2:
                     // panggil menu author
@@ -51,7 +52,7 @@ public class BookCaseMenu {
 
     }
 
-    public static void bookMenu() {
+    public static void bookMenu(List<CommercialBook> listAllBook) {
         String[] bookMenu = { "Find cheapest book", "Find most expensive book", "Find book by range price",
                 "Find comic by mangaka rating", "Find book by publisher country", "Find book by author country",
                 "Find most expensive comic", "Back to main menu" };
@@ -74,6 +75,9 @@ public class BookCaseMenu {
                     isLooping = false;
                     break;
                 case 3:
+                double price = Double.valueOf(Validation.validateInput("Enter price: ", "Only number accepted", Validation.regexNumber));
+                PrintData.printDataBook("Book By Range Price " + price , BookCaseAction.findBookByRangePrice(price, listAllBook));
+                isLooping = false;
 
                     break;
                 case 4:
@@ -90,8 +94,9 @@ public class BookCaseMenu {
                     break;
 
                 case 0:
+                
                     isLooping = false;
-                    mainMenu();
+                    //mainMenu(listAllBook);
                     break;
             }
         } while (isLooping);
