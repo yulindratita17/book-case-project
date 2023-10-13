@@ -2,6 +2,7 @@ package bookproject.model;
 
 import java.util.List;
 
+import bookproject.abstracts.Book;
 import bookproject.abstracts.CommercialBook;
 import bookproject.repositories.BookRepository;
 
@@ -12,7 +13,6 @@ public class BookCaseMenu {
         BookRepository bookRepo = new BookRepository();
         List<CommercialBook> listAllBook = bookRepo.getAllBook();
 
-        String[] mainPublisher = { "Production Cost Termahal", "Production Cost Termurah", "Back To Main Menu" };
         mainMenu(listAllBook);
 
     }
@@ -35,8 +35,10 @@ public class BookCaseMenu {
                     break;
                 case 2:
                     // panggil menu author
+                    authorMenu(listAllBook);
                     break;
                 case 3:
+                    publisherMenu(listAllBook);
                     // panggil menu publisher
                     break;
                 case 0:
@@ -100,15 +102,99 @@ public class BookCaseMenu {
 
                     break;
                 case 7:
+                    PrintData.printDataBook("Most expensive comic", BookCaseAction.findMostExpensiveComic(listAllBook));
 
                     break;
 
                 case 0:
 
                     isLooping = false;
-                    // mainMenu(listAllBook);
+
                     break;
-                // mainMenu(listAllBook);
+
+            }
+        } while (isLooping);
+
+    }
+
+    public static void authorMenu(List<CommercialBook> listAllBook) {
+        String[] menuAuthor = { "Find all mangaka", "Find all author", "Find all novelis", "Find author by range age",
+                "Find author by country", "Back to main menu" };
+        int chooseMenu;
+        boolean isLooping = true;
+
+        do {
+            PrintData.printMenu("Author Menu Searching", menuAuthor);
+            chooseMenu = Integer.valueOf(Validation.validateNumberWithRange("Choose item: ", "Only number accepted",
+                    Validation.regexNumber, 0, 5));
+
+            switch (chooseMenu) {
+                case 1:
+                    PrintData.printDataAuthor("Data Mangaka", BookCaseAction.findAuthorByType("mangaka", listAllBook));
+
+                    break;
+
+                case 2:
+                    PrintData.printDataAuthor("Data Author", BookCaseAction.findAllAuthor(listAllBook));
+
+                    break;
+
+                case 3:
+                    PrintData.printDataAuthor("Data Novelis", BookCaseAction.findAuthorByType("novelis", listAllBook));
+
+                    break;
+
+                case 4:
+                    int age1 = Integer.valueOf(Validation.validateInput("Enter age range 1: ", "Only number accepted",
+                            Validation.regexNumber));
+                    int age2 = Integer.valueOf(Validation.validateInput("Enter age range 2: ", "Only number accepted",
+                            Validation.regexNumber));
+                    PrintData.printDataAuthor("Data Author By Range Age " + age1 + " to " + age2,
+                            BookCaseAction.findAuthorByRangeAge(age1, age2, listAllBook));
+
+                    break;
+
+                case 5:
+                    String authorCountry = Validation.validateInput("Enter author country: ", "Only alphabet accepted",
+                            Validation.regexWord);
+                    PrintData.printDataAuthor("Data Author By Country " + authorCountry,
+                            BookCaseAction.findAuthorByCountry(authorCountry, listAllBook));
+
+                    break;
+
+                case 0:
+                    isLooping = false;
+                    break;
+            }
+        } while (isLooping);
+
+    }
+
+    public static void publisherMenu(List<CommercialBook> listAllBook) {
+
+        String[] publisherMenu = { "Most Expensive Production Cost", "Cheapest Production Cost", "Back To Main Menu" };
+        int chooseMenu;
+        boolean isLooping = true;
+
+        do {
+            PrintData.printMenu("Publisher Menu Searching", publisherMenu);
+            chooseMenu = Integer.valueOf(Validation.validateNumberWithRange("Choose item: ", "Only number accepted",
+                    Validation.regexNumber, 0, 2));
+
+            switch (chooseMenu) {
+                case 1:
+                    PrintData.printDataPublisher("Most Expensive Production Cost",
+                            BookCaseAction.findPubsliherProductionCost("expensive", listAllBook));
+                    break;
+
+                case 2:
+                    PrintData.printDataPublisher("Cheapest Production Cost",
+                            BookCaseAction.findPubsliherProductionCost("cheap", listAllBook));
+                    break;
+
+                case 0:
+                    isLooping = false;
+                    break;
             }
         } while (isLooping);
 

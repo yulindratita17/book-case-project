@@ -5,12 +5,7 @@ import java.util.List;
 import bookproject.abstracts.CommercialBook;
 
 public class PrintData {
-	public static void printDataAuthor(List<Author> listData) {
-		for (Author data : listData) {
-			System.out.println(data);
-			System.out.println("==============");
-		}
-	}
+	
 
 	public static void printMenu(String title, String[] listMenu) {
 		int number = 1;
@@ -42,5 +37,39 @@ public class PrintData {
 			num++;
 		}
 		System.out.println("==============================================================================================================================================\n");
+	}
+
+	public static void printDataAuthor(String tittle, List<Author> listData) {
+		int num = 1;
+		String formatTabel = "| %-4s | %-10s | %-10s | %-20s | %-15s | %-5s |%n";
+		System.out.println("\n===================================================================================");
+		System.out.printf("| %-79s |%n", tittle);
+		System.out.println("===================================================================================");
+		System.out.printf(formatTabel, "No", "First Name", "Last Name", "Full Name", "Country", "Age");
+		System.out.println("===================================================================================");
+
+		for (Author data : listData) {
+			System.out.printf(formatTabel, num, data.getFirstName(), data.getLastName(), data.getFullName(),data.getCountry(), data.getAge());
+			num++;
+		}
+
+		System.out.println("===================================================================================\n");
+	}
+
+	public static void printDataPublisher(String tittle, List<Publisher> listData) {
+		int num = 1;
+		String formatTabel = "| %-4s | %-25s | %-15s | %-15s | %n";
+		System.out.println("\n===================================================================================");
+		System.out.printf("| %-79s |%n", tittle);
+		System.out.println("===================================================================================");
+		System.out.printf(formatTabel, "No", "Publisher Name", "Country", "Production Cost");
+		System.out.println("===================================================================================");
+
+		for (Publisher data : listData) {
+			System.out.printf(formatTabel, num, data.getPublisherName(), data.getCountry(), data.getProductionCost());
+			num++;
+		}
+
+		System.out.println("===================================================================================\n");
 	}
 }
